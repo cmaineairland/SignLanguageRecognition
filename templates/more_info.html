@@ -1,0 +1,89 @@
+<!--
+ * @Date: 2024-02-16 15:25:30
+ * @LastEditors: Qianshanju
+ * @E-mail: z1939784351@gmail.com
+ * @LastEditTime: 2024-05-04 21:03:54
+ * @FilePath: \Graduation_Project\核心代码\templates\more_info.html
+-->
+<!--
+ * @Date: 2024-02-16 15:25:30
+ * @LastEditors: Qianshanju
+ * @E-mail: z1939784351@gmail.com
+ * @LastEditTime: 2024-02-16 23:12:29
+ * @FilePath: \Graduation_Project\前端代码\index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页-春天使者</title>
+    <link rel="stylesheet" href="static/styles.css">
+    <link rel="stylesheet" href="static/more_info_style.css">
+    <script src="static/script.js"></script>
+    <script>
+        function changeContent() {
+            // 获取要修改内容的盒子
+            var box = document.getElementById('article_body');
+            fetch('/more_info/article2248')
+            .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+            })
+            .then(html => {
+            var newContent = html;
+            box.innerHTML = newContent;
+            console.log(html); // 打印获取的网页源代码
+            })
+            .catch(error => {
+            console.error('Fetch failed:', error);
+            });
+            var newContent ;
+            // 修改盒子的内容
+
+        }
+        window.onload = check_cookie();
+    </script>
+</head>
+<body>
+    <div class="head">
+        <img src="static/logo.png" alt="some_text" class="logo">
+        <div class="button-container">
+            <a href="/">
+                <button class="button">首页</button>
+            </a>
+            <a href="/手语识别">
+                <button class="button">手语识别</button>
+            </a>
+            <a href="/news">
+                <button class="button">最新消息</button>
+            </a>
+            <a href="/more_info">
+                <button class="button">了解更多</button>
+            </a>
+            <a href="/pay_for_us">
+                <button class="button">付费捐赠</button>
+            </a>
+            <a href="/connect_us">
+                <button class="button">联系我们</button>
+            </a>
+        </div>
+    </div>
+    <div class="glass-container">
+        <div class="glass-content">
+            <div class="article_body" id="article_body">
+
+
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    // 在这里编写需要在 DOM 加载完成后执行的代码
+    changeContent();
+});
+</script>
+</html>

@@ -1,0 +1,161 @@
+<!--
+ * @Date: 2024-02-16 15:25:30
+ * @LastEditors: Qianshanju
+ * @E-mail: z1939784351@gmail.com
+ * @LastEditTime: 2024-05-04 21:41:31
+ * @FilePath: \Graduation_Project\核心代码\templates\recognition.html
+-->
+<!--
+ * @Date: 2024-02-16 15:25:30
+ * @LastEditors: Qianshanju
+ * @E-mail: z1939784351@gmail.com
+ * @LastEditTime: 2024-02-16 23:12:29
+ * @FilePath: \Graduation_Project\前端代码\index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手语识别-春天使者</title>
+    <link rel="stylesheet" href="static/styles.css">
+    <link rel="stylesheet" href="static/recognition_style.css">
+    <script src="static/script.js"></script>
+    <script>
+        window.onload = check_cookie();
+    </script>
+</head>
+<body>
+    <div class="head">
+        <img src="static/logo.png" alt="some_text" class="logo">
+        <div class="button-container">
+            <a href="/">
+                <button class="button">首页</button>
+            </a>
+            <a href="/手语识别">
+                <button class="button">手语识别</button>
+            </a>
+            <a href="/news">
+                <button class="button">最新消息</button>
+            </a>
+            <a href="/more_info">
+                <button class="button">了解更多</button>
+            </a>
+            <a href="/pay_for_us">
+                <button class="button">付费捐赠</button>
+            </a>
+            <a href="/connect_us">
+                <button class="button">联系我们</button>
+            </a>
+        </div>
+    </div>
+    <div class="glass-container">
+        <div class="glass-content">
+            <div class="model_choose">
+                <p>请选择您的识别模型</p>
+                <form id="radioForm" style="text-align: left;margin-left: 55px;">
+                    <!-- 单选按钮组的容器 -->
+                </form>
+                <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+                    <input type="file" name="file" id="fileInput" style="display: none;" accept="">
+                </form>
+                <button id="fileInputButton" class="fileInputButton" onclick="open_model_window()">点击上传模型</button>
+            </div>
+            <div class="recognition_main">
+                <div class="recognition_video">
+                    <img id="frame" width="100%" src="{{ url_for('video_feed') }}" alt="模块加载失败">
+                </div>
+                <div class="recognition_reference">
+                    <h1>请输入需要参考的手势</h1>
+                    <form action="#">
+                        <input type="text" id="get_reference" placeholder="请输入需要参考的手势" class="styled-input">
+                        <button type=button onclick="get_char()" class="btn">确认</button>
+                    </form>
+                    <div class = recognition_image>
+                        <img id="reference_image" src="" alt="还未选择图片" class="fill-container">
+                    </div>
+                    <div class="slider">
+                            <!-- 滑块元素 -->
+                        <label for="slider">请选择识别速度:</label>
+                        <input type="range" id="slider" name="slider" min="1" max="10" value="5" step="1">
+
+                        <!-- 显示滑块值 -->
+                        <p>当前识别速度: <span id="sliderValue">50</span></p>
+                    </div>
+                   
+                </div>
+                <div class="recognition_text">
+                    <p>识别内容如下：</p>
+                    <p id="output">程序尚未启动，可能会有卡顿，请耐心等待...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="myModal" class="modal_window">
+        <h2>关于上传模型的要求</h2>
+        <p>1、上传的模型应为后缀名为zip的压缩包</p>
+        <p>2、压缩包的名称应当是模型的名称</p>
+        <p>3、压缩包内应当包含两个文件夹“picture”及“videos”</p>
+        <p>4、文件夹picture内存放图片</p>
+        <p>5、图片以<字符>.jpg命名，如A.jpg</p>
+        <p>6、图片内容为该字符对应的标准手势</p>
+        <p>4、文件夹videos内存放视频</p>
+        <p>5、视频以<字符>.mp4命名，如B.mp4</p>
+        <p>6、视频内容为该字符对应的标准手势</p>
+        <button class="modal_button" onclick="cancel()">取消</button>
+        <button class="modal_button" onclick="sure()">确认</button>
+    </div>
+    <script src="static/upload.js"></script>
+</body>
+<script src="static/recognition_script.js"></script>
+<script>
+    check_model_list();
+    // 获取表单元素
+    const radioForm = document.getElementById('radioForm');
+    // 添加事件监听器，监听每个 radio 按钮的变化
+    radioForm.addEventListener('change', function() {
+        // 获取所有同名的 radio 按钮（name="models"）
+        const radioButtons = document.querySelectorAll('input[name="models"]');
+        
+        // 遍历每个 radio 按钮
+        radioButtons.forEach(function(radioButton) {
+            // 检查哪个按钮被选中
+            if (radioButton.checked) {
+                // 如果被选中，获取其值（value）
+                const selectedValue = radioButton.value;
+                
+                // 输出选中的值
+                console.log('选中的内容是:', selectedValue);
+                
+
+                var data = {
+                    type:'model_select',
+                    model_name:selectedValue
+                };
+
+            fetch('/get_massage', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Login failed');
+                }
+            })
+            .then(data => {
+               
+            })
+            .catch(error => {
+                console.error('Login error:', error.message);
+            });
+
+                }
+        });
+    });
+</script>
+</html>

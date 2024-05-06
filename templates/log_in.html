@@ -1,0 +1,143 @@
+<!--
+ * @Date: 2024-04-26 16:32:56
+ * @LastEditors: Qianshanju
+ * @E-mail: z1939784351@gmail.com
+ * @LastEditTime: 2024-05-06 20:37:43
+ * @FilePath: \Graduation_Project\核心代码\templates\log_in.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="static/styles.css">
+    <link rel="stylesheet" href="static/log_in_style.css">
+    <script src="static/script.js"></script>
+    <script>
+        window.onload = check_cookie();
+    </script>
+    
+    
+</head>
+<body>
+    <div class="head">
+        <img src="static/logo.png" alt="some_text" class="logo">
+        <div class="button-container">
+            <a href="/">
+                <button class="button">首页</button>
+            </a>
+            <a href="/手语识别">
+                <button class="button">手语识别</button>
+            </a>
+            <a href="/news">
+                <button class="button">最新消息</button>
+            </a>
+            <a href="/more_info">
+                <button class="button">了解更多</button>
+            </a>
+            <a href="/my_model">
+                <button class="button">我的模型</button>
+            </a>
+            <a href="/user_center">
+                <button class="button">用户中心</button>
+            </a>
+            <a href="/pay_for_us">
+                <button class="button">付费捐赠</button>
+            </a>
+            <a href="/connect_us">
+                <button class="button">联系我们</button>
+            </a>
+        </div>
+    </div>
+        <div class="glass-container">
+            <div class="glass-content">
+                <div class="log_in_center">
+                    <div class="log_in_left_picture">
+                        <img src="static/登录左侧图片.png" alt="123" class="picture_in_login_left">
+                    </div>
+                    <div class="log_in_username_and_password">
+                        <h1>欢迎您再次回来 :)</h1>
+                        <p class="p1">请输入您的用户名及密码以登录本系统 🔔</p>
+                        <p class="p1"></p>
+                        <form id="loginForm">
+                            <input type="text" id="username" name="username" placeholder="用户名" required>
+                            <input type="password" id="password" name="password" placeholder="密码" required>
+                            <button type="button" class="submit_username_password" onclick="get_username_password()">立即登录</button>
+                        </form>
+                        <a href="/create_account" class="create-account-link">点击我立刻注册一个新的账户！</a>
+                        <p class="p2">*
+                            如果您登录，即表示您同意相关政策、法律和社会伦理 😘</p>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </body>
+</body>
+
+<script>
+    function get_username_password(event) {
+        // 获取表单元素
+        var usernameInput = document.getElementById('username');
+        var passwordInput = document.getElementById('password');
+
+        // 获取用户输入的用户名和密码
+        var username = usernameInput.value;
+        var password = passwordInput.value;
+
+        usernameInput.value = '';
+        passwordInput.value = '';
+
+        var data = {
+            type:'log_in',
+            username: username,
+            password: password,
+        };
+
+        fetch('/get_massage', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Login failed');
+            }
+        })
+        .then(data => {
+            // 在此处理后端返回的响应数据
+            // 根据后端返回的结果进行页面跳转
+            if (data.message=='success') {
+                var cookie = username + '=' + password;
+                var expirationDate = new Date();
+                expirationDate.setTime(expirationDate.getTime() + (7 * 24 * 60 * 60 * 1000));
+                cookie += '; expires=' + expirationDate.toUTCString();
+                document.cookie = cookie;
+                window.location.href = '/'; // 登录成功，跳转到首页
+            } 
+            else if(data.message=='password wrong'){
+                // 登录失败，可以显示错误消息或执行其他操作
+                alert("用户名或密码错误！");
+            }
+            else if(data.message=='account not exists'){
+                alert("用户不存在！");
+            }
+            else{
+                alert("未知错误");
+            }
+            // 可以根据响应结果进行页面跳转或其他操作
+        })
+        .catch(error => {
+            console.error('Login error:', error.message);
+        });
+
+    }
+</script>
+
+</html>

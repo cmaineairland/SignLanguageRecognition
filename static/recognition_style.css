@@ -1,0 +1,91 @@
+.recognition_image {
+
+    position: absolute;
+    width: 58%;
+    height: 55%;
+    top: 23%;
+    border: 2px solid transparent;
+    /* 设置初始边框，颜色透明 */
+    border-image: linear-gradient(to left,
+            rgba(18, 194, 233, 0.6),
+            rgba(196, 113, 237, 0.6),
+            rgba(246, 79, 89, 0.6));
+    border-image-slice: 1;
+    /* 设置边框渐变的切片大小 */
+}
+
+.fill-container {
+    max-width: 100%;
+    /* 最大宽度不超过父元素宽度 */
+    max-height: 100%;
+    /* 最大高度不超过父元素高度 */
+    width: auto;
+    /* 宽度自适应 */
+    height: auto;
+    /* 高度自适应 */
+    position: absolute;
+    /* 绝对定位，相对于容器 */
+    top: 50%;
+    /* 图片顶部偏移50%，使图片垂直居中 */
+    left: 50%;
+    /* 图片左侧偏移50%，使图片水平居中 */
+    transform: translate(-50%, -50%);
+    /* 使用transform调整图片位置，使其居中 */
+}
+
+.slider {
+    position: absolute;
+    top: 83%;
+}
+
+.recognition_reference {
+    position: absolute;
+    top: 1%;
+    left: 52%;
+    width: 50%;
+    height: 100%;
+
+}
+
+input[type="range"] {
+    /* 移除默认样式 */
+    -webkit-appearance: none;
+    appearance: none;
+    /* 设置滑块的高度和宽度 */
+    width: 100%;
+    height: 20px;
+    /* 设置滑块轨道的样式 */
+    background: linear-gradient(to left,
+            rgba(18, 194, 233, 0.6),
+            rgba(196, 113, 237, 0.6),
+            rgba(246, 79, 89, 0.6));
+    border-radius: 10px;
+    /* 圆角 */
+    outline: none;
+    /* 移除轨道的默认外观 */
+    opacity: 0.7;
+    /* 轨道的透明度 */
+    transition: opacity 0.2s;
+    /* 轨道的过渡效果 */
+}
+
+/* 滑块拖动时的样式 */
+input[type="range"]:hover {
+    opacity: 1;
+    /* 鼠标悬停时完全显示轨道 */
+}
+
+/* 自定义滑块拖块的样式 */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    /* 拖块的大小和形状 */
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    /* 圆形 */
+    background-color: white;
+    /* 拖块的背景色 */
+    cursor: pointer;
+    /* 鼠标指针样式 */
+}

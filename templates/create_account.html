@@ -1,0 +1,131 @@
+<!--
+ * @Date: 2024-04-26 16:32:56
+ * @LastEditors: Qianshanju
+ * @E-mail: z1939784351@gmail.com
+ * @LastEditTime: 2024-05-06 20:42:49
+ * @FilePath: \Graduation_Project\核心代码\templates\create_account.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="static/styles.css">
+    <link rel="stylesheet" href="static/log_in_style.css">
+    <script src="static/script.js"></script>
+    <script>
+        window.onload = check_cookie();
+    </script>
+    
+    
+</head>
+<body>
+        <div class="head">
+            <img src="static/logo.png" alt="some_text" class="logo">
+            <div class="button-container">
+                <a href="/">
+                    <button class="button">首页</button>
+                </a>
+                <a href="/手语识别">
+                    <button class="button">手语识别</button>
+                </a>
+                
+                <button class="button" onclick="alert('我还活着')">最新消息</button>
+                <button class="button" onclick="alert('没有更多')">了解更多</button>
+                <button class="button" onclick="alert('并没有领导关怀')">我的模型</button>
+                <button class="button" onclick="alert('我自己都还没搞明白，还是别自定义模型了')">用户中心</button>
+                <button class="button" onclick="alert('支持微信、支付宝')">付费捐赠</button>
+                <button class="button" onclick="alert('微信联系')">联系我们</button>
+            </div>
+        </div>
+        <div class="glass-container">
+            <div class="glass-content">
+                <div class="log_in_center">
+                    <div class="log_in_left_picture">
+                        <img src="static/登录左侧图片.png" alt="123" class="picture_in_login_left">
+                    </div>
+                    <div class="log_in_username_and_password">
+                        <h1>欢迎加入我们 :)</h1>
+                        <p class="p1">
+                            注册一个账户，为7200万名听障人士做出自己的一份贡献 ❤</p>
+                        <form id="loginForm">
+                            <input type="text" id="username" name="username" placeholder="用户名" required>
+                            <input type="password" id="password" name="password" placeholder="密码" required>
+                            <button type="button" class="submit_username_password" onclick="get_username_password()">注册并登录</button>
+                        </form>
+                        <a href="/log_in" class="create-account-link">已有账户？点击我立即登录！</a>
+                        <p class="p2">*如果您登录，即表示您同意相关政策、法律和社会伦理 😘</p>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </body>
+</body>
+
+<script>
+    function get_username_password(event) {
+        // 获取表单元素
+        var usernameInput = document.getElementById('username');
+        var passwordInput = document.getElementById('password');
+
+        // 获取用户输入的用户名和密码
+        var username = usernameInput.value;
+        var password = passwordInput.value;
+
+        usernameInput.value = '';
+        passwordInput.value = '';
+
+        var data = {
+            type:'create_account',
+            username: username,
+            password: password,
+        };
+
+        fetch('/get_massage', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Login failed');
+            }
+        })
+        .then(data => {
+            // 在此处理后端返回的响应数据
+            // 根据后端返回的结果进行页面跳转
+            if (data.message=='success') {
+                var cookie = username + '=' + password;
+                var expirationDate = new Date();
+                expirationDate.setTime(expirationDate.getTime() + (7 * 24 * 60 * 60 * 1000));
+                cookie += '; expires=' + expirationDate.toUTCString();
+                document.cookie = cookie;
+                window.location.href = '/'; // 登录成功，跳转到首页
+            } 
+            else if(data.message=='account exists'){
+                // 登录失败，可以显示错误消息或执行其他操作
+                alert("用户名已存在！");
+            }
+            else if(data.message=='account not exist'){
+                alert("用户不存在！");
+            }
+            else{
+                alert("未知错误");
+            }
+            // 可以根据响应结果进行页面跳转或其他操作
+        })
+        .catch(error => {
+            console.error('Login error:', error.message);
+        });
+
+    }
+</script>
+
+</html>

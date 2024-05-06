@@ -1,0 +1,352 @@
+.head {
+    background-color: #3498db;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 10%;
+}
+
+.glass-container {
+    position: absolute;
+    top: 10%;
+    left: 0%;
+    width: 100%;
+    height: 90%;
+    background-image: url('background.jpg');
+    /* 替换为你的背景图片路径 */
+    background-position: right 0px top -200px;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.glass-content {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    /* 调整模糊程度 */
+    background-color: rgba(255, 255, 255, 0.5);
+    /* 背景颜色，透明度可调整 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 可选样式，调整字体和文本颜色 */
+.glass-content h1 {
+    color: #333;
+}
+
+.button-container {
+    position: absolute;
+    top: 0%;
+    left: 18%;
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    /* 将按钮平均分布在容器中 */
+}
+
+.button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #2980b9;
+}
+
+
+.index_picture {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+}
+
+.index_word {
+    position: absolute;
+    text-align: right;
+    font-weight: 500;
+    top: -15%;
+    left: 0%;
+    width: 50%;
+    height: 120%;
+}
+
+.index_button_box {
+    position: absolute;
+    top: 75%;
+    left: 20%;
+    width: 80%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.index_button {
+    background: linear-gradient(to left,
+            rgba(18, 194, 233, 0.6),
+            rgba(196, 113, 237, 0.6),
+            rgba(246, 79, 89, 0.6));
+    color: #fff;
+    border-radius: 30px;
+    padding: 20px 30px;
+    font-size: 30px;
+    border: none;
+    cursor: pointer;
+    animation: fadeInLeft 2.5s ease-out;
+}
+
+.index_button:hover {
+    background-color: #2980b9;
+}
+
+.gradient-text {
+    font-size: 120px;
+    margin-bottom: -150px;
+    background: linear-gradient(to left,
+            #12C2E9, #C47189, #F64F59);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: fadeInLeft 2.5s ease-out;
+    /* 设置发光效果，可以根据需要调整参数 */
+}
+
+/* 定义淡入动画 */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.recognition_main {
+    position: absolute;
+    top: 0%;
+    left: 29%;
+    width: 75%;
+    height: 100%;
+
+}
+
+.recognition_video {
+    position: absolute;
+    top: 5%;
+    left: 0%;
+    width: 48%;
+    height: 65.5%;
+
+    border: 2px solid transparent;
+    /* 设置初始边框，颜色透明 */
+    border-image: linear-gradient(to left,
+            rgba(18, 194, 233, 0.6),
+            rgba(196, 113, 237, 0.6),
+            rgba(246, 79, 89, 0.6));
+    border-image-slice: 1;
+    /* 设置边框渐变的切片大小 */
+
+}
+
+
+
+.recognition_text {
+    position: absolute;
+    top: 75%;
+    left: 0%;
+    width: 46.5%;
+    height: 23%;
+    padding-left: 20px;
+    font-size: 20px;
+    background:
+        linear-gradient(to left,
+            rgba(18, 194, 233, 0.6),
+            rgba(196, 113, 237, 0.6),
+            rgba(246, 79, 89, 0.6));
+    border-radius: 30px;
+}
+
+.model_choose {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 20%;
+    height: 92%;
+    border: 2px solid transparent;
+    /* 设置初始边框，颜色透明 */
+    border-image: linear-gradient(to left,
+            rgba(18, 194, 233, 0.6),
+            rgba(196, 113, 237, 0.6),
+            rgba(246, 79, 89, 0.6));
+    border-image-slice: 1;
+    /* 设置边框渐变的切片大小 */
+    border-radius: 30px;
+    text-align: center;
+    font-size: 21px;
+}
+
+.styled-input {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #3498db;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+    background: rgba(0, 0, 0, 0);
+    /* 添加过渡效果 */
+}
+
+/* 鼠标悬停时改变边框颜色 */
+.styled-input:hover {
+    border-color: #e74c3c;
+}
+
+/* 聚焦时改变边框颜色 */
+.styled-input:focus {
+    border-color: #27ae60;
+}
+
+.btn {
+    margin-left: 10px;
+    /* 文字颜色 */
+    color: #0099CC;
+    /* 清除背景色 */
+    background: transparent;
+    /* 边框样式、颜色、宽度 */
+    border: 2px solid #0099CC;
+    /* 给边框添加圆角 */
+    border-radius: 20px;
+    width: 100px;
+    /* 设置按钮宽度 */
+    height: 40px;
+    text-align: center;
+    font-size: 16px;
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.btn:hover {
+    background: linear-gradient(to left,
+            rgba(18, 194, 233, 0.6),
+            rgba(196, 113, 237, 0.6),
+            rgba(246, 79, 89, 0.6));
+    ;
+    color: white;
+    border: none;
+}
+
+.fileInputButton {
+    margin-top: 10px;
+    background: linear-gradient(to left,
+            rgba(18, 194, 233, 0.6),
+            rgba(196, 113, 237, 0.6),
+            rgba(246, 79, 89, 0.6));
+    color: #fff;
+    border-radius: 30px;
+    padding: 10px 30px;
+    font-size: 25px;
+    border: none;
+    cursor: pointer;
+}
+
+.fileInputButton:hover {
+    background-color: #2980b9;
+}
+
+.modal_window {
+    display: none;
+    /* 默认隐藏 */
+    position: fixed;
+    /* 固定定位 */
+    z-index: 9999;
+    /* 设置 z-index 以保证位于其他元素之上 */
+    top: 50%;
+    /* 垂直居中 */
+    left: 50%;
+    /* 水平居中 */
+    transform: translate(-50%, -50%);
+    /* 通过 transform 实现居中 */
+    background-color: #fff;
+    /* 背景色 */
+    padding: 20px;
+    /* 内边距 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    /* 添加阴影效果 */
+    border-radius: 5px;
+    /* 圆角 */
+}
+
+/* 模态框标题样式 */
+.modal h2 {
+    margin-top: 0;
+    /* 去除默认的上边距 */
+}
+
+/* 按钮样式 */
+.modal_button {
+    padding: 10px 20px;
+    /* 按钮内边距 */
+    background-color: #007bff;
+    /* 按钮背景色 */
+    color: #fff;
+    /* 文字颜色 */
+    border: none;
+    /* 去除边框 */
+    border-radius: 3px;
+    /* 圆角 */
+    cursor: pointer;
+    /* 鼠标样式为手型 */
+}
+
+.log_in_center {
+    background-color: #ffffff;
+    position: absolute;
+    width: 76%;
+    height: 76%;
+    top: 12%;
+    left: 12%;
+    border-radius: 20px;
+}
+
+.log_in_left_picture {
+    position: absolute;
+
+    width: 70%;
+    height: 100%;
+
+}
+
+.log_in_username_and_password {
+    position: absolute;
+    width: 30%;
+    height: 100%;
+    left: 70%;
+}
+
+.picture_in_login_left {
+    position: absolute;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* 使用负的50%来居中 */
+}

@@ -1,0 +1,25 @@
+.article_body {
+    overflow-y: auto;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    position: absolute;
+    left: 15%;
+    border-radius: 8px;
+    height: 90%;
+    width: 70%;
+    top: 5%;
+    background: #FFffff;
+}
+
+.article_text {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 22px;
+    margin-bottom: 3px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+}

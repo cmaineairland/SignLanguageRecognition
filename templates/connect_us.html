@@ -1,0 +1,117 @@
+<!--
+ * @Date: 2024-02-16 15:25:30
+ * @LastEditors: Qianshanju
+ * @E-mail: z1939784351@gmail.com
+ * @LastEditTime: 2024-05-04 21:33:10
+ * @FilePath: \Graduation_Project\核心代码\templates\connect_us.html
+-->
+<!--
+ * @Date: 2024-02-16 15:25:30
+ * @LastEditors: Qianshanju
+ * @E-mail: z1939784351@gmail.com
+ * @LastEditTime: 2024-02-16 23:12:29
+ * @FilePath: \Graduation_Project\前端代码\index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页-春天使者</title>
+    <link rel="stylesheet" href="static/styles.css">
+    <script src="static/script.js"></script>
+    <script>
+        window.onload = check_cookie();
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+        }
+
+        .contact-info p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .contact-info p:last-child {
+            margin-bottom: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="head">
+        <img src="static/logo.png" alt="some_text" class="logo">
+        <div class="button-container">
+            <a href="/">
+                <button class="button">首页</button>
+            </a>
+            <a href="/手语识别">
+                <button class="button">手语识别</button>
+            </a>
+            <a href="/news">
+                <button class="button">最新消息</button>
+            </a>
+            <a href="/more_info">
+                <button class="button">了解更多</button>
+            </a>
+            <a href="/pay_for_us">
+                <button class="button">付费捐赠</button>
+            </a>
+            <a href="/connect_us">
+                <button class="button">联系我们</button>
+            </a>
+        </div>
+    </div>
+    <div class="glass-container">
+        <div class="glass-content">
+            <div class="container">
+                <h1>Contact Me</h1>
+                <div class="contact-info">
+                    <p>Email: 1939784351@qq.com</p>
+                    <p>Phone: +86 18713231928</p>
+                    <p>Location: Beijing, China</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

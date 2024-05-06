@@ -1,0 +1,96 @@
+.container {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    position: absolute;
+    left: 8%;
+    border-radius: 8px;
+    height: 94%;
+    width: 25%;
+    top: 5%;
+    background: #FFffff;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+.news-item {
+    margin-bottom: 10px;
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+.news-item:hover {
+    background-color: #aaaaaa;
+}
+
+
+.news-item:last-child {
+    border-bottom: none;
+}
+
+.news-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #444;
+    text-decoration: none;
+    text-align: left;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+    /* 取消按钮的内边距 */
+    margin: 0;
+    /* 取消按钮的外边距 */
+}
+
+.news-summary {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.article_body {
+    overflow-y: auto;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    position: absolute;
+    left: 35%;
+    border-radius: 8px;
+    height: 94%;
+    width: 60%;
+    top: 5%;
+    background: #FFffff;
+}
+
+.timeAndAuthor {
+    color: #aaaaaa;
+    font-size: 15px;
+    text-align: center;
+}
+
+.article_text {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 22px;
+    margin-bottom: 3px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.article_image {
+    display: flex;
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+    height: 300px;
+    /* 设置容器高度 */
+}
+
+.article_image img {
+    max-width: 100%;
+    /* 图片最大宽度为容器宽度 */
+    max-height: 100%;
+    /* 图片最大高度为容器高度 */
+}

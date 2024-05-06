@@ -1,0 +1,67 @@
+/* Styling for form container */
+.log_in_username_and_password {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Align items to the left */
+    text-align: left;
+    /* Align text within items to the left */
+    width: 300px;
+    /* Optional: Adjust container width as needed */
+    margin: auto;
+    /* Center the container horizontally */
+}
+
+/* Styling for form inputs */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    /* Expand input fields to fill the container */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Styling for submit button */
+.submit_username_password {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit_username_password:hover {
+    background-color: #0056b3;
+}
+
+/* Styling for create account link */
+.create-account-link {
+    display: flex;
+    justify-content: center;
+    /* 水平居中 */
+    margin-top: 10px;
+    margin-left: 40px;
+}
+
+h1 {
+    margin-top: 20%;
+}
+
+.p1 {
+    margin-top: -10px;
+}
+
+form {
+    margin-top: 20px;
+}
+
+.p2 {
+    color: rgb(180, 180, 180);
+    text-align: justify;
+}

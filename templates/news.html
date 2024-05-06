@@ -1,0 +1,159 @@
+<!--
+ * @Date: 2024-02-16 15:25:30
+ * @LastEditors: Qianshanju
+ * @E-mail: z1939784351@gmail.com
+ * @LastEditTime: 2024-05-04 21:20:21
+ * @FilePath: \Graduation_Project\核心代码\templates\news.html
+-->
+<!--
+ * @Date: 2024-02-16 15:25:30
+ * @LastEditors: Qianshanju
+ * @E-mail: z1939784351@gmail.com
+ * @LastEditTime: 2024-02-16 23:12:29
+ * @FilePath: \Graduation_Project\前端代码\index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页-春天使者</title>
+    <link rel="stylesheet" href="static/styles.css">
+    <link rel="stylesheet" href="static/news_style.css">
+    <script src="static/script.js"></script>
+    <script>
+        window.onload = check_cookie();
+    </script>
+</head>
+<body>
+    <div class="head">
+        <img src="static/logo.png" alt="some_text" class="logo">
+        <div class="button-container">
+            <a href="/">
+                <button class="button">首页</button>
+            </a>
+            <a href="/手语识别">
+                <button class="button">手语识别</button>
+            </a>
+            <a href="/news">
+                <button class="button">最新消息</button>
+            </a>
+            <a href="/more_info">
+                <button class="button">了解更多</button>
+            </a>
+            <a href="/pay_for_us">
+                <button class="button">付费捐赠</button>
+            </a>
+            <a href="/connect_us">
+                <button class="button">联系我们</button>
+            </a>
+        </div>
+    </div>
+    <div class="glass-container">
+        <div class="glass-content">
+            <div class="container">
+                <h1>新闻列表</h1>
+            
+                <div class="news-item">
+                    <div class="news-title">
+                        <button class="news-title" onclick="changeContent('WTO')">
+                            世界卫生组织发布指南，改善低收入和中等收入国家的听力护理服务
+                        </button>
+                    </div>
+                    <div class="news-summary">
+                        世卫组织发布新的指南，旨在改善低收入和中等收入国家的助听器服务，强调任务共享和改变对听力护理的态度。
+                    </div>
+                </div>
+            
+                <div class="news-item">
+                    <button class="news-title" onclick="changeContent('kindergarten')">
+                        幼儿园融合：混合听力群体取得积极成果
+                    </button>
+                    <div class="news-summary">
+                        该幼儿园支持听障学生，促进共享学习和自信心。
+                    </div>
+                </div>
+            
+                <div class="news-item">
+                    <button class="news-title" onclick="changeContent('audiologist')">
+                        从听障患者到听力学家
+                    </button>
+                    <div class="news-summary">
+                        Vernice Lim，新加坡唯一一位携带人工耳蜗的听力学家，鼓舞其他听障人士去追求成功。
+                    </div>
+                </div>
+            
+                <div class="news-item">
+                    <button class="news-title" onclick="changeContent('poet')">
+                        Rhyl：手语诗人多萝西·迈尔斯荣获紫色牌匾
+                    </button>
+                    <div class="news-summary">
+                        聋哑诗人 Dot Miles 因其文学贡献荣获威尔士紫色牌匾。
+                    </div>
+                </div>
+            
+                <div class="news-item">
+                    <button class="news-title" onclick="changeContent('GCSE')">
+                        为何威尔士手语GCSE被推迟
+                    </button>
+                    <div class="news-summary">
+                        威尔士的英国手语（BSL）GCSE考试因方言考虑将推迟至2027年。
+                    </div>
+                </div>
+            
+                <!-- 如有需要，添加更多新闻项目 -->
+            </div>
+            
+            <div class="article_body" id="article_body">
+                <h1>世界卫生组织发布指南</h1>
+                <h1>改善低收入和中等收入国家的听力护理服务</h1>
+                <p class="timeAndAuthor">2024年3月1日 联合国</p>
+                <div class="article_image">
+                    <img src="static/WHO_news.jpg" alt="图片丢失">
+                </div>
+                <p class="article_text">为了纪念3月3日的世界听力日，世界卫生组织（WHO）发布了针对低收入和中等收入国家听力助听器服务的新技术指南。这份文件旨在为那些缺乏评估听力、安装和维护助听器人力资源的国家提供实用的指导。</p>
+                <p class="article_text">该指南由 ATScale 全球辅助技术伙伴关系的支持下开发，基于专家与训练有素的非专家之间任务共享的原则。它包括两种方法，一种针对成年人，另一种针对5岁及以上的儿童，并附有关于健康耳朵护理实践、使用助听器以及支持听力受损者的资源和建议。</p>
+                <p class="article_text">“全球有超过4亿听力受损的人可能从使用助听器中受益。然而，不到这些需求的20%得到了满足。”世卫组织非传染性疾病部门主任本特·米克尔森博士表示，“未解决的听力受损是全球公共卫生挑战，每年造成超过1万亿美元的经济成本。鉴于耳朵和听力护理专家的全球短缺，我们必须重新思考传统的服务提供方式。”</p>
+                <p class="article_text">新指南的发布与世界听力日同时进行。2024年的主题是“改变观念：让耳朵和听力护理成为所有人的现实”，强调纠正公众和初级卫生服务提供者对听力受损的常见误解的重要性。</p>
+                <p class="article_text">现有的观念限制了听力护理的获取</p>
+                <p class="article_text">耳朵和听力护理的两个关键挑战之一是缺乏在人们一生中提供综合耳朵和听力护理的卫生系统能力，这一点在政策、人力资源和专项资金方面得到了证实。世卫组织详细介绍的服务提供方法旨在通过更好地利用非专家提供听力护理来增加能力，从而克服这一挑战。</p>
+                <p class="article_text">第二个关键挑战与有关听力受损和耳朵疾病的错误认知和污名观念有关，这些观念深深植根于社会中，往往限制了改善听力护理的努力取得成功。常见的错误认知包括认为听力受损是老年人不可避免的部分，以及助听器效果不佳或价格过高。</p>
+                <p class="article_text">世卫组织耳朵和听力护理技术负责人谢莉·查达博士表示：“关于听力受损的常见误解通常会阻止人们寻求他们需要的服务，即使这些服务是可获得的。”“通过加强卫生系统，努力改善听力护理提供，必须伴随着在社会中提高意识并解决与耳朵和听力护理相关的污名。”</p>
+                <p class="article_text">医护人员也存在着与听力护理相关的常见错误观念，他们可能认为这是一项专业化或难以提供的服务，结果无法识别和治疗甚至不需要专家护理的病例。</p>
+                <p class="article_text">改变观念</p>
+                <p class="article_text">改变与耳朵和听力护理相关的观念对于提高获取性和减少未解决的听力受损成本至关重要。为了解决常见的误解和错误认知，世卫组织发布了多种信息产品和资源，以提高公众意识。一份面向健康专业人员的信息单提供了与初级层面服务提供者参与听力护理的明确理由和指导。</p>
+                <p class="article_text">各国政府应采取措施，在初级卫生保健中整合耳朵和听力护理，在社区层面实施接近人民的服务，并领导倡议，提高对听力受损相关污名的认识。医疗保健提供者也必须履行自己的职责，确保他们给予常见耳朵和听力问题的关注和护理。公民社会团体、家长、教师和医生可以利用世卫组织的宣传资料和社区资源，向人们介绍耳朵和听力护理的重要性。</p>
+                <p class="article_text">为了支持推荐的服务提供方法的实施，世卫组织正在努力开发配套培训材料，以培训非专业人员提供听力护理和助听器服务。</p>
+                <p></p>
+            </div>
+            
+        </div>
+    </div>
+</body>
+
+<script>
+    function changeContent(url) {
+    // 获取要修改内容的盒子
+    var box = document.getElementById('article_body');
+    fetch('/news/'+ url)
+    .then(response => {
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+    return response.text();
+    })
+    .then(html => {
+    var newContent = html;
+    box.innerHTML = newContent;
+    console.log(html); // 打印获取的网页源代码
+    })
+    .catch(error => {
+    console.error('Fetch failed:', error);
+    });
+    var newContent ;
+    // 修改盒子的内容
+
+}
+</script>
+
+</html>
