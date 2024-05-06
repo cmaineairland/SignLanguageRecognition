@@ -1,0 +1,2 @@
+# SignLanguageRecognition
+基于OpenCV的手语识别系统的设计与实现
